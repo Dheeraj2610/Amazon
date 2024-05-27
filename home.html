@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
+
+    <title>Amazon_Clone</title>
+    <style>
+           .navbar-brand img {
+      width: auto;
+      height: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    .navbar {
+      height: 60px; 
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.881);
+    }
+
+    .navbar-brand {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+    
+    .location {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 90%;
+      font-size: 1rem;
+      margin-left: 5px;
+      color: white;
+    }
+
+    .location:hover {
+      outline: 1px solid rgb(255, 255, 255);
+    }
+
+    .location-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .location .top-text {
+      margin: 0;
+      font-size: 0.75rem;
+    }
+
+    .location .bottom-text {
+      margin: 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .location .fa-location-dot {
+      margin-right: 5px;
+    }
+
+    .nav-center {
+    height: 40px;
+    display: flex;
+    flex-grow: 1;
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.nav-center:hover {
+    outline: 2px solid rgb(232, 176, 73);
+}
+
+.search-dropdown {
+    width: 5rem;
+    font-size: 1rem;
+    background-color: rgb(210, 208, 208);
+    padding: .5rem;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-dropdown:focus {
+    outline: none;
+}
+
+.search-box {
+    font-size: 1rem;
+    flex-grow: 1;
+    padding: .5rem;
+}
+
+.search-box:focus {
+    outline: none;
+}
+
+.search-icon i {
+    height: 100%;
+    background-color: rgba(255, 203, 105, 0.849);
+    border-radius: 0 5px 5px 0;
+    padding: .7rem .5rem;
+    outline: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+}
+.language-option {
+    display: flex;
+    padding: .5rem .5rem;
+}
+
+.language-option:hover {
+    outline: 1px solid white;
+}
+
+.flag {
+      width: 20px;
+      color: white;
+      margin-right: 5px;
+    }
+.select-language {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+.select-language option {
+    color: black;
+}
+
+/* account option */
+.account-option {
+    padding: 3px;
+}
+.account-option p{
+    color: white;
+}
+
+.account-option:hover {
+    outline: 1px solid white;
+}
+
+.account-option .top-text {
+    font-size: .9rem;
+    margin-left: 5px;
+    margin-bottom: 0;
+}
+
+.select-account {
+    font-size: .7rem;
+    font-weight: bold;
+    background: transparent;
+    color: white;
+    border: none;
+}
+.select-account option{
+    color: black;
+    font-size: 1rem;
+}
+
+.order-option {
+    height: 55px;
+} 
+
+.order-option:hover {
+    outline: 1px solid white;
+}
+
+.order-option .top-text {
+    font-size: .9rem;
+    color: aliceblue;
+    margin-bottom: 0;
+    padding-top: 5px;
+
+}
+
+.order-option .bottom-text {
+  
+    font-size: .9rem;
+    font-weight: bold;
+    color: aliceblue;
+  
+}
+.cart-option {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem .5rem;
+    
+    color: aliceblue;
+}
+
+.cart-option:hover {
+    outline: 1px solid white;
+}
+
+.cart-logo i {
+    width: 20px;
+   
+}
+
+.nav-options {
+    display: flex; 
+    align-items: center; 
+    background-color: #374450;
+    height: 45px;
+
+}
+
+
+.nav-options .options {
+    display: flex;
+    gap: 10px; 
+    margin-top: 16px;
+}
+
+.nav-options .options p {
+    padding: 0.5rem;
+    color: white;
+}
+
+.nav-options .options p:hover {
+    outline: 1px solid white;
+}
+/* carousel */
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+.carousel-inner img {
+  height: 600px; /* Set your desired height here */
+  
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden */
+  width: 200px;
+  height: 100%;
+  background-color: #ffffff;
+  transition: left 0.3s ease;
+  z-index: 1000; /* Ensure it's above other content */
+  margin-top: 103px;
+}
+
+/* Adjust the position based on the toggle button */
+.sidebar.active {
+  left: 0;
+}
+.sidebar .sidebar-content{
+    display: flex;
+    flex-direction: column;
+    
+   
+ 
+}
+.sidebar .sidebar-content a{
+    padding: 10px;
+    color: rgb(73, 75, 78);
+    text-decoration: none;
+    font-size: 1rem;
+    
+}
+.sidebar_link{
+    padding: 10px;
+}
+.sidebar_link:hover{
+    background-color: rgb(213, 213, 213);
+}
+.sidebar-user{
+    color: white;
+    font-size: 3rem;
+    margin-top: 0%;
+    background-color: rgb(61, 63, 62);
+    width: 100%;
+    padding: 10px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    display: none; /* Initially hidden */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+.overlay.active {
+    display: block; /* Show overlay when sidebar is active */
+}
+
+body{
+    background-color:  rgb(230, 239, 236);
+}
+.card-parent{
+    margin-top: 10px;
+    background-color:  rgb(230, 239, 236);
+    display: flex;
+    justify-content: space-around;
+}
+.card-parent_2{
+    margin-top: 10px;
+    background-color: rgb(230, 239, 236);
+    display: flex;
+    justify-content: space-around;
+}
+.card-container {
+    padding: 5px;
+    width: 24%;
+    background-color: #ffffff;
+   
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    padding-right: 1px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+   border: none;
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card span {
+    
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand" href="#">
+            <img src="images/ama2.png" class="d-inline-block align-top" alt="">
+            <div class="location">
+              <p class="top-text">Deliver to Dheeraj</p>
+              <div class="location-icon">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="bottom-text">Kottayam</p>
+              </div>
+            </div>
+          </a>
+        </div>
+          <!-- Dropdown and search -->
+          <div class="nav-center">
+                <select class="search-dropdown">
+                    <option>All</option>
+                    <option>Alexa skills</option>
+                    <option>Amazon Devices</option>
+                    <option>Amazon fashion</option>
+                </select>
+                <input type="text" placeholder="Search Amazon" 
+                    class="search-box">
+                <div class="search-icon">
+                    <i class="fas fa-solid fa-magnifying-glass" 
+                        style="color: #28416c;">
+                    </i>
+                </div>
+            </div>
+            <!-- country account order -->
+            <div class="nav-right">
+                    <div class="language-option">
+                        <div class="flag">
+                            <i class="fi fi-in"></i>
+                        </div>
+                        <select class="select-language">
+                            <option value="lan">EN</option>
+                            <option value="lan">ES</option>
+                            <option value="lan">AR</option>
+                        </select>
+                    </div>
+
+                    <div class="account-option">
+                        <p class="top-text">
+                            Hello, Dheeraj
+                        </p>
+                        <select class="select-account">
+                            <option value="Account">
+                                Account & Lists
+                            </option>
+                            <option value="Account">
+                               Your Account
+                            </option>
+                            <option value="Account">
+                               Your orders
+                            </option>
+                        </select>
+                    </div>
+
+                <div class="order-option">
+                    <p class="top-text">
+                        Returns
+                    </p>
+                    <p class="bottom-text">
+                        & Orders
+                    </p>
+                </div>
+
+                <div class="cart-option">
+                    <div class="cart-logo">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                     &nbsp;Cart
+                </div>
+            </div>
+    </nav>
+       
+        <div class="nav-options">
+            <div class="options">
+                
+                <p ><button style="background-color: #374450; border: none;color: white;" class="w3-button w3-xlarge" onclick="toggleSidebar()"><i class="fas fa-solid fa-bars"></i></button>&nbsp;All</p>
+                <p >Fresh</p>
+                <p>Amazon MiniTV</p>
+                <p>Sell</p>
+                <p>Gift Card</p>
+                <p>Amazon Pay</p>
+                <p>Buy Again</p>
+                <p>Coupouns</p>
+                <p>Gift Ideas</p>
+                <p>Household & Personal Care</p>
+                <p>Today's Deals</p>
+                <p>Customer Service</p>
+                <p>Registry</p>
+                <p>Books</p>
+               
+            </div>
+        </div>
+
+        <div id="sidebar" class="sidebar w3-sidebar w3-bar-block w3-collapse">
+            <div class="sidebar-content">
+                <div class="sidebar-user"><h6><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Hello, Dheeraj</h6></div>
+                <div class="sidebar_link"><a href="#" class="w3-bar-item w3-button">Trending</a></div>
+                <div class="sidebar_link"><a href="#" class="w3-bar-item w3-button">Best Seller</a></div>
+                <div class="sidebar_link"><a href="#" class="w3-bar-item w3-button">New Releases</a></div>
+            </div>
+        </div>
+
+        <!-- main part carousel -->
+        <div id="overlay" class="overlay" onclick="toggleSidebar()">  </div>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="images/carousel_1.avif" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="images/carousel_2.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="images/carousel_3.jpg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+        <!-- cards -->
+    <div class="card-parent">
+        <div class="card-container">
+            <h5 style="text-align: center;">Pick up where you left off</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/a0111a233e4640c2b54baf560104f817_9366/Ultrabounce_Shoes_White_HP5778_01_standard.jpg" alt="Adidas shoe">
+                    <span>Adidas shoe</span>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/61foRXv9dVL._AC_SY500_.jpg" alt="Adidas shoe">
+                    <span>Adidas shoe</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/c23bd1066d7c4e07a35dadb200ebdde8_9366/CORE_LINEAR_STUNICON_SHOES_Blue_EY2984_01_standard.jpg" alt="Adidas shoe">
+                    <span>Adidas shoe</span>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/31JocdLLQfL._AC_SY300_.jpg" alt="Adidas shoe">
+                    <span>Adidas shoe</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+
+        <div class="card-container" >
+            <h5 style="text-align: center;">Helmets For You</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://productimages.hepsiburada.net/s/240/375-375/110000225251514.jpg" alt="Adidas shoe">
+                    <span>Axor Helmet</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpREUmLUOhXwevp0qFyEDzWElqE3BGw8vu4yyvT5wKYWLAuX3gLvCHhPkZH86ZjWCv4c&usqp=CAU" alt="Adidas shoe">
+                    <span>Steelbird Helmet</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-XdjRoaoIYat-EtwBM5JexkLtVvQgpIx2fiswYdu9W_a0GTCDS4s5lor0plXJrC7cH4U&usqp=CAU" alt="Adidas shoe">
+                    <span>Vega Helmet </span>
+                </div>
+                <div class="card">
+                    <img src="https://i5.walmartimages.com/asr/413a2b49-13c9-4d66-bd68-d89071d54c9a_1.2cf75b7e2cf0ac8e66b00e5a721163a0.jpeg" alt="Adidas shoe">
+                    <span>Vega Helmet</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+        <div class="card-container">
+            <h5 style="text-align: center;">Continue Shopping </h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://t4.ftcdn.net/jpg/04/70/41/75/360_F_470417568_jFftLDWqMwxTt7O6XJFEVjd96ulRFqZD.jpg" alt="Adidas shoe">
+                    <span>T-shirt</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL_gp3Usa79Pohm80UMeKGcZlbF1PUv_TgKs8ZQk9C4XB1pTBLJNX6LXJW3b1YxagnJ7I&usqp=CAU" alt="Adidas shoe">
+                    <span>Men Shirts</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxl45n83GeX60R9mLniBfUS21Py4Fh2hyz1bktLxgbvluzEjUAbp8cee28CEffk2Ukhbk&usqp=CAU" alt="Adidas shoe">
+                    <span>Axor Helmet</span>
+                </div>
+                <div class="card">
+                    <img src="https://img.freepik.com/premium-photo/computer-gaming-mouse-white-background-ai_894067-5249.jpg" alt="Adidas shoe">
+                    <span>Gaming Mouse</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+
+        <div class="card-container">
+            <h5 style="text-align: center;">Comming Fashions</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://t4.ftcdn.net/jpg/04/70/41/75/360_F_470417568_jFftLDWqMwxTt7O6XJFEVjd96ulRFqZD.jpg" alt="Adidas shoe">
+                    <span>Men shirt</span>
+                </div>
+                <div class="card">
+                    <img src="https://di2ponv0v5otw.cloudfront.net/posts/2023/04/29/644d6b415d686bc303a1ca2a/s_644d8df491e053aa6206c43a.jpeg" alt="Adidas shoe">
+                    <span>Men Shirts</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/A16k-N8tEpL._AC_SX522_.jpg" alt="Adidas shoe">
+                    <span>Men Shirt</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL_gp3Usa79Pohm80UMeKGcZlbF1PUv_TgKs8ZQk9C4XB1pTBLJNX6LXJW3b1YxagnJ7I&usqp=CAU" alt="Adidas shoe">
+                    <span>Men Shirt</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+</div>
+    <!-- cards2 -->
+    <div class="card-parent_2">
+        <div class="card-container">
+            <h5 style="text-align: center;">Top Offers in Laptop</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://www.laptopsdirect.co.uk/Images/A14BA19EA_1_LargeProductImage.jpg?width=650&height=650&v=1" alt="Adidas shoe">
+                    <span>HP Laptops</span>
+                </div>
+                <div class="card">
+                    <img src="https://www.laptopsdirect.co.uk/Images/A16WR63EA_1_LargeProductImage.jpg?width=650&height=650&v=2" alt="Adidas shoe">
+                    <span>Dell Laptops</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/10/OU/EH/WG/26929687/hp-laptop-500x500.jpg" alt="Adidas shoe">
+                    <span>MSI Laptops</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREQh0BJa8rFtr3SMFCi36cKsa_6HBAidhAvRiVdsVpkCKieVw2CuG-LQDmAYWcWQy28Cc&usqp=CAU" alt="Adidas shoe">
+                    <span>MI Laptops</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+
+        <div class="card-container">
+            <h5 style="text-align: center;">Up to 30% off in Mobile phones</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/4/OV/XU/MN/148217327/oppo-a76-mobile-phone.jpg" alt="Adidas shoe">
+                    <span>Axor Helmet</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS22QiDJ73ipUftVYOUiiYEjHsc1jf0xhdoZU56L_bhKxLr0eq6PTav6vrUg-vnSllLgc&usqp=CAU" alt="Adidas shoe">
+                    <span>Steelbird Helmet</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://static-01.daraz.pk/p/fd96c6839257328bcabd73ef25482a0c.jpg" alt="Adidas shoe">
+                    <span>Vega Helmet </span>
+                </div>
+                <div class="card">
+                    <img src="https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1672876160.50773273!348x348.jpg" alt="Adidas shoe">
+                    <span>Vega Helmet</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+        <div class="card-container">
+            <h5 style="text-align: center;">Sunglasses</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://ampere.shop/cdn/shop/files/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.jpg?v=1704269504" alt="Adidas shoe">
+                    <span>T-shirt</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtR0viXoNT3_sW_3qxqM24GrPhesYX8ngg7B_vsN7wQP0psZQuviscn0Vz2P79YSAMpF0&usqp=CAU" alt="Adidas shoe">
+                    <span>Men Shirts</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://www.montblanc.com/variants/images/42247633208661479/A/w2500.jpg" alt="Adidas shoe">
+                    <span>Axor Helmet</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFs4YjbkrQTVOVf1qan60rykR0ithdvuEyUq6ifs6I0ytJi_UwHTPUo-oobNRQLfkQ06g&usqp=CAU" alt="Adidas shoe">
+                    <span>Gaming Mouse</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+
+        <div class="card-container">
+            <h5 style="text-align: center;">Helmets For You</h5>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://productimages.hepsiburada.net/s/240/375-375/110000225251514.jpg" alt="Adidas shoe">
+                    <span>Axor Helmet</span>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpREUmLUOhXwevp0qFyEDzWElqE3BGw8vu4yyvT5wKYWLAuX3gLvCHhPkZH86ZjWCv4c&usqp=CAU" alt="Adidas shoe">
+                    <span>Steelbird Helmet</span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-XdjRoaoIYat-EtwBM5JexkLtVvQgpIx2fiswYdu9W_a0GTCDS4s5lor0plXJrC7cH4U&usqp=CAU" alt="Adidas shoe">
+                    <span>Vega Helmet </span>
+                </div>
+                <div class="card">
+                    <img src="https://i5.walmartimages.com/asr/413a2b49-13c9-4d66-bd68-d89071d54c9a_1.2cf75b7e2cf0ac8e66b00e5a721163a0.jpeg" alt="Adidas shoe">
+                    <span>Vega Helmet</span>
+                </div>
+            </div>
+            <a href="" style="padding-left: 20px;">See all deals</a>
+        </div>
+</div>
+    
+
+
+      
+          <!-- carousel -->
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+          
+           <!-- sidebar -->
+              <script>
+                function toggleSidebar() {
+                    var sidebar = document.getElementById("sidebar");
+                    sidebar.classList.toggle("active");
+        
+                    var overlay = document.getElementById("overlay");
+                    overlay.classList.toggle("active");
+                }
+            </script>
+</html>
